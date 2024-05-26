@@ -1,3 +1,7 @@
+Analysis on Speed Dating Data Set
+					
+Authored by: Ren Ayangco, Rynz Daval, Gian Tan
+
 I. Introduction
 
 Dataset Link: https://www.kaggle.com/datasets/mexwell/speed-dating
