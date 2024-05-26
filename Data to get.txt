@@ -1,0 +1,39 @@
+Which gender gets more matches?
+
+Which career received more matches?
+
+Which characteristic in which did matter most in getting a match?
+
+How many people actually matched?
+
+Did men match more with older or younger women?
+
+Did women match more with older or younger men?
+
+Which gender was more delusional (Use the prob column since it is a rating on whether the rater believed that interest would be reciprocated)
+
+Which gender was more in the friend zone? (use match column and met column (to know if they had met or not before))
+
+library(tidyverse)
+library(readxl)
+datingDf <- read.csv("C:/Users/Admin/Downloads/speed_data_data.csv")
+
+view(datingDf)
+datingDf$career
+#Checking which gender matched more
+match <- with(datingDf,tapply(gender,dec, FUN=sum))
+print(match)
+
+#Checking which career received more matches
+job <- datingDf %>% group_by(career) %>%
+  summarise(Matches = sum(dec))
+
+#Getting the index of the max of the matches
+indexOfJob <- which.max(job$Matches)
+
+#Output for which career received more matches
+print(job[indexOfJob, ])
+
+
+#Count of people that actually matched
+sum(datingDf$dec)
